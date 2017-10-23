@@ -9,7 +9,10 @@
 # tar zxvf en.tar.gz
 #
 # you need to specify the location of the data
-stored_data=./OpenSubtitles2016/xml/en
+OpenSubtitels_dir=$1
+stored_data=$OpenSubtitels_dir/xml/en
+echo $stored_data
+#stored_data=./OpenSubtitles2016/xml/en
 
 # extract train and dev sets
 echo extracting training, development, and test sets
