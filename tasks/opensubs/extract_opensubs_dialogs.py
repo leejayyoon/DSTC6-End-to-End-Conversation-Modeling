@@ -114,7 +114,7 @@ if __name__ == '__main__':
     acc_ratio = 0.0
     for r in args.ratio:
         acc_ratio += r / total_ratio
-        partition.append(int(acc_ratio * len(corpus)))
+        partition.append(int(acc_ratio * len(corpus))) # partition size becomes len(args.ratio)+1
 
     for n in six.moves.range(len(partition)-1):
         print('writing %d sentence pairs to %s' % (partition[n+1]-partition[n], args.output[n]))
@@ -123,5 +123,6 @@ if __name__ == '__main__':
                 len1 = corpus[idx][1]
                 len2 = corpus[idx+1][1]
                 if 0 < len1 < args.max_length and 0 < len2 < args.max_length:
-                    six.print_('U: %s\nS: %s\n' % (corpus[idx][0],corpus[idx+1][0]), file=f)
+                    six.print_('%s\t%s' % (corpus[idx][0],corpus[idx+1][0]), file=f)
+                    # six.print_('U: %s\nS: %s\n' % (corpus[idx][0],corpus[idx+1][0]), file=f)
                 

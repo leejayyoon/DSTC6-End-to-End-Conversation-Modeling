@@ -17,12 +17,13 @@ grep -w "S:" $ENCODE_FILE
 grep -w "W:" $DECODE_FILE
 
 # Revmoing "U:" & "S:" at the beginning
+
 awk 'NR%3==1' ${DATA_DIR}/${fname} | cut -c 4-  > ${ENCODE_FILE}
 awk 'NR%3==2' ${DATA_DIR}/${fname} | cut -c 4-  > ${DECODE_FILE}
 
-
+printf '\nOriginal File\n'
 head -n 5 ${DATA_DIR}/${fname}
-head -n 3 ${ENCODE_FILE}
-
-head -n 5 ${DATA_DIR}/${fname}
-head -n 3 ${DECODE_FILE}
+printf '\nENCODER input\n'
+head -n 2 ${ENCODE_FILE}
+printf '\nDECODER input\n'
+head -n 2 ${DECODE_FILE}
